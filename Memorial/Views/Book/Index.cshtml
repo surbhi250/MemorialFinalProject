@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Memorial.Models.Books>
+
+@{ ViewData["Title"] = "Home"; }
+@{ Layout = "_Layout2"; }
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfChapters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfChapters)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AuthorId)
+    </td>
+    <td>
+        <a asp-action="AddBook" asp-route-id="@item.Id" type="button" class="btn btn-warning">Book</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

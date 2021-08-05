@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Memorial.Models.Books>
+
+@{ ViewData["Title"] = "Home"; }
+@{
+    Layout = "_Layout2";
+}
+<br />
+<p>
+    <a asp-action="Create">Click here to Add Book</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfChapters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumberOfChapters)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AuthorId)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-warning">Edit</a>
+        <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-warning">Details</a>
+        <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-warning">Delete</a>
+    </td>
+</tr>
+        }
+    </tbody>
+</table>
